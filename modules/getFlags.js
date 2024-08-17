@@ -1,8 +1,8 @@
+
 export default function getFlags() {
-  let flags = localStorage.getItem('flags');
-  if (flags !== null) {
-    return Number(flags); 
-  } else {
-    return 0; 
-  }
-}
+  let flags;
+  if (localStorage.getItem('flags')) {
+    flags = localStorage.getItem('flags');
+  } else flags = 0;
+  return flags;
+};

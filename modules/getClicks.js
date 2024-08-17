@@ -1,8 +1,7 @@
 export default function getClicks() {
-  let clicks = localStorage.getItem('clicks');
-  if (clicks !== null) {
-    return Number(clicks); 
-  } else {
-    return 0; 
-  }
-}
+  let clicks;
+  if (localStorage.getItem('clicks')) {
+    clicks = localStorage.getItem('clicks');
+  } else clicks = 0;
+  return clicks;
+};

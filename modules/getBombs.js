@@ -1,6 +1,7 @@
 export default function getBombs() {
-  const bombs = localStorage.getItem('bombs')
-    ? JSON.parse(localStorage.getItem('bombs'))
-    : [];
+  let bombs;
+  if (localStorage.getItem('bombs')) {
+    bombs = JSON.parse(localStorage.getItem('bombs'));
+  } else bombs = [];
   return bombs;
-}
+};

@@ -1,5 +1,8 @@
 export default function getOptions() {
-  const defaultOptions = {
+  let options;
+  if (localStorage.getItem('options')) {
+    options = JSON.parse(localStorage.getItem('options'));
+  } else options = {
     width: 10,
     height: 10,
     bombsCount: 10,
@@ -7,7 +10,5 @@ export default function getOptions() {
     new: true,
     sound: 'on',
   };
-
-  const savedOptions = localStorage.getItem('options');
-  return savedOptions ? JSON.parse(savedOptions) : defaultOptions;
-}
+  return options;
+};

@@ -1,11 +1,16 @@
+/* Importing the font */
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap');
 
+/* Base styles */
 body {
   font-family: 'Rubik Maze', cursive;
   font-size: 16px;
   font-weight: 750;
+  margin: 0;
+  padding: 0;
 }
 
+/* Container styling */
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -15,4 +20,340 @@ body {
   background-color: #f5f5dc;
   box-shadow: 0 2px 4px #808080;
   text-shadow: 0 0 5px #c8c8c8;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark theme for the container */
+.container--dark {
+  color: #f5f5dc;
+  background-color: #5a5a5a;
+}
+
+/* Header styling */
+.header {
+  padding: 20px;
+  font-family: 'Rubik Maze', cursive;
+  font-size: 60px;
+  text-align: center;
+}
+
+/* Layout and alignment for wrapper */
+.wrapper {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* Board styling */
+.board {
+  display: grid;
+  background-color: #f5f5dc;
+  border-radius: 10px;
+}
+
+/* Cell styling */
+.cell {
+  height: 40px;
+  font-size: 24px;
+  background-color: #f5f5dc;
+  border: 1px solid #5a5a5a;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px #808080;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cell:active {
+  transform: scale(0.95);
+}
+
+.cell:disabled {
+  background-color: #c8c8c8;
+}
+
+/* Dark theme for board and cells */
+.container--dark .board,
+.container--dark .cell {
+  background-color: #5a5a5a;
+  border: 1px solid #f5f5dc;
+}
+
+.container--dark .cell:disabled {
+  background-color: #f5f5ee;
+}
+
+/* Cell colors based on value */
+.cell-1 {
+  color: #0200fc;
+}
+
+.cell-2 {
+  color: #00ff00;
+}
+
+.cell-3 {
+  color: #ff0000;
+}
+
+.cell-4 {
+  color: #010080;
+}
+
+.cell-5 {
+  color: #7f0300;
+}
+
+.cell-6 {
+  color: #008080;
+}
+
+.cell-7 {
+  color: #000000;
+}
+
+.cell-8 {
+  color: #808080;
+}
+
+/* Options and results styling */
+.options,
+.results {
+  padding: 0 10px;
+  width: 240px;
+  transition: all 0.3s ease-out;
+}
+
+.info__table {
+  margin-top: 10px;
+}
+
+.clicks,
+.timer,
+.flags,
+.bombs-rest {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.clicks__num,
+.timer__num,
+.flags__num,
+.bombs-rest__num {
+  font-size: 48px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.options__title,
+.results__title {
+  color: inherit;
+  margin-bottom: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.bombs-output {
+  margin-right: 10px;
+}
+
+.size {
+  margin-top: 20px;
+}
+
+.size__label,
+.theme__label,
+.sound__label {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.results__item {
+  margin-bottom: 10px;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  transition: display 0.3s ease-out;
+}
+
+.modal--active {
+  display: flex;
+}
+
+.modal__wrapper {
+  width: 50vw;
+  height: 50vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modal__text {
+  font-size: 24px;
+  text-align: center;
+}
+
+.modal__btn,
+.new-game {
+  cursor: pointer;
+  background-color: transparent;
+  color: #000;
+  border: 3px solid #5a5a5a;
+  border-radius: 10px;
+  padding: 16px 36px;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.container--dark .new-game {
+  color: #f5f5dc;
+  border-color: #f5f5dc;
+}
+
+.modal__btn:hover,
+.new-game:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.modal__btn:active,
+.new-game:active {
+  transform: scale(0.95);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .container {
+    width: 1000px;
+    padding: 0;
+  }
+
+  .modal__btn,
+  .new-game {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 750px;
+  }
+
+  .header {
+    font-size: 32px;
+  }
+
+  .cell {
+    height: 30px;
+    font-size: 18px;
+    border-radius: 2px;
+  }
+
+  .options,
+  .results {
+    width: 170px;
+  }
+
+  .modal__btn,
+  .new-game {
+    font-size: 18px;
+  }
+
+  .modal__text {
+    font-size: 18px;
+  }
+
+  .info {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .timer__num,
+  .clicks__num,
+  .flags__num,
+  .bombs-rest__num {
+    font-size: 24px;
+  }
+
+  .clicks,
+  .timer,
+  .flags,
+  .bombs-rest {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 750px) {
+  body {
+    font-size: 12px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 500px;
+  }
+
+  .header {
+    font-size: 24px;
+  }
+
+  .board {
+    border-radius: 2px;
+  }
+
+  .cell {
+    height: 20px;
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 1px 2px;
+  }
+
+  .options,
+  .results {
+    width: 110px;
+  }
+
+  .options__title,
+  .results__title {
+    font-size: 16px;
+  }
+
+  .info {
+    gap: 5px;
+  }
+
+  .timer__num,
+  .clicks__num,
+  .flags__num,
+  .bombs-rest__num {
+    font-size: 18px;
+  }
 }
