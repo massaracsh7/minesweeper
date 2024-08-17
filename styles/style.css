@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap');
+
+body {
+  font-family: 'Rubik Maze', cursive;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  color: #5a5a5a;
+  background-color: #f5f5dc;
+  box-shadow: 0 2px 4px #808080;
+  text-shadow: 0 0 5px #c8c8c8;
+}
